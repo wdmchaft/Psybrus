@@ -33,6 +33,7 @@ GaTopState::~GaTopState()
 void GaTopState::enterOnce()
 {
 	CsCore::pImpl()->requestResource( "spritesheet", SpriteSheetMaterial_ );
+	CsCore::pImpl()->requestResource( "font", FontMaterial_ );
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -42,6 +43,8 @@ eSysStateReturn GaTopState::enter()
 	BcBool Ready = BcTrue;
 
 	Ready &= SpriteSheetMaterial_.isReady();
+	Ready &= FontMaterial_.isReady();
+	Ready &= ScnFont::Default.isReady();
 
 	return Ready ? sysSR_FINISHED : sysSR_CONTINUE;
 }

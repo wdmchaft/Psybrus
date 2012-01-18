@@ -38,7 +38,7 @@ public:
 
 private:
 	ScnMaterialRef					SpriteSheetMaterial_;
-
+	ScnMaterialRef					FontMaterial_;
 	ScnEntityRef					GameEntity_;
 
 };

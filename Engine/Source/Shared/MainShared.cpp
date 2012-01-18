@@ -13,7 +13,7 @@
 
 #include "MainShared.h"
 
-BcU32 GResolutionWidth = 480;
+BcU32 GResolutionWidth = 640 + 128 + 64;
 BcU32 GResolutionHeight = 640;
 
 //////////////////////////////////////////////////////////////////////////

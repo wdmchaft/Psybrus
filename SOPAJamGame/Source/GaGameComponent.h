@@ -34,6 +34,7 @@ public:
 		GAME_AREA_SIZE = GAME_AREA_W * GAME_AREA_H,
 		
 		LAYER_GAME_AREA = 0,
+		LAYER_CENSOR,
 		LAYER_UI,
 	};
 
@@ -43,6 +44,7 @@ public:
 		 STATE_NEW_PIECE,
 		 STATE_CONTROL_PIECE,
 		 STATE_REMOVE_LINES,
+		 STATE_GAME_OVER,
 		 STATE_MAX
 	};
 
@@ -61,12 +63,18 @@ public:
 private:
 	BcBool nudgeGameArea( BcS32 DeltaX, BcS32 DeltaY, BcBool NotMovableOnCollision );
 	BcBool removeGameAreaFullLines();
+	void rotateMoveables();
 	void renderGameArea();
-	
+	void renderNextPiece();
+	void getPiecePosition( BcU32 Idx, BcU32 BlockIdx, BcS32& X, BcS32& Y, BcBool IsSwapped );
+	BcBool addPieceToArea( BcU32 Idx, BcBool IsSwapped, BcU32 OffX = 0, BcU32 OffY = 0, BcBool Centered = BcTrue );
+
 private:
 	// Resources.
 	ScnMaterialRef				SpriteSheetMaterial_;
+	ScnMaterialRef				FontMaterial_;
 	ScnMaterialComponentRef		SpriteSheetMaterialComponent_;
+	ScnFontComponentRef			FontComponent_;
 	ScnCanvasComponentRef		CanvasComponent_;
 
 	// Game.
@@ -91,6 +99,7 @@ private:
 	TBlock						GameArea_[ GAME_AREA_SIZE ];
 	
 	GameState					GameState_;
+	BcBool						IsSwapped_;
 	BcU32						ShapeIdx_;
 	BcU32						NextShapeIdx_;
 	
