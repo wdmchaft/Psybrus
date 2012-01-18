@@ -1,0 +1,12 @@
+{ 
+	"ScnTextureAtlas" : {
+		"name"		: "spritesheet",
+		"source"	: [
+			"GameContent/Source/block0.png",
+			"GameContent/Source/block1.png",
+			"GameContent/Source/block2.png"
+		],
+		
+		"distancefield" : false
+	}
+}

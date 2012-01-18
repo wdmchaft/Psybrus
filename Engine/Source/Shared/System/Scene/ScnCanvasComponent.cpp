@@ -55,6 +55,9 @@ void ScnCanvasComponent::initialise( BcU32 NoofVertices, ScnMaterialComponentRef
 	// Store default material instance.
 	DefaultMaterialComponent_ = DefaultMaterialComponent; 
 	MaterialComponent_ = DefaultMaterialComponent_;
+	static BcName NameDiffuseTex( "aDiffuseTex" );
+	BcU32 Parameter = MaterialComponent_->findParameter( NameDiffuseTex );
+	DiffuseTexture_ = MaterialComponent_->getTexture( Parameter );
 
 	// Which render resource to use.
 	CurrentRenderResource_ = 0;
